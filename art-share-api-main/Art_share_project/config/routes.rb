@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :artwork_shares, only: [:create, :destroy]
 
+  resources :comments, only: [:index, :create, :destory]
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
