@@ -1,22 +1,22 @@
 # == Schema Information
 #
-# Table name: artwork_shares
+# Table name: comments
 #
 #  id         :bigint           not null, primary key
+#  body       :text             not null
+#  author_id  :bigint           not null
 #  artwork_id :bigint           not null
-#  viewer_id  :bigint           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class ArtworkShare < ApplicationRecord
-  validates :viewer_id, uniqueness: { scope: :artwork_id }
+class Comment < ApplicationRecord
+  validates :body, presence: true
+
+  belongs_to :author,
+    foreign_key: :author_id,
+    class_name: :User
 
   belongs_to :artwork,
     foreign_key: :artwork_id,
     class_name: :Artwork
-
-  belongs_to :viewer,
-    foreign_key: :viewer_id,
-    class_name: :User,
-    inverse_of: :artwork_shares
 end
