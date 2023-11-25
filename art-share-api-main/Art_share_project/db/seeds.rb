@@ -17,7 +17,7 @@
   # ArtworkCollection.destroy_all
   # Collection.destroy_all
   # Like.destroy_all
-  # Comment.destroy_all
+  Comment.destroy_all
   ArtworkShare.destroy_all
   Artwork.destroy_all
   User.destroy_all
@@ -41,8 +41,8 @@
   artwork2 = Artwork.create!(title: 'mona lisa', image_url: 'google1.com', artist: user2)
   ArtworkShare.create!(artwork: artwork1, viewer: user2)
   ArtworkShare.create!(artwork_id: artwork2.id, viewer_id: user3.id)
-  # comment1 = Comment.create!(body: 'great!', author: user1, artwork: artwork1)
-  # comment2 = Comment.create!(body: 'another great one', author: user2, artwork: artwork2)
+  comment1 = Comment.create!(body: 'great!', author: user1, artwork: artwork1)
+  comment2 = Comment.create!(body: 'another great one', author: user2, artwork: artwork2)
   # Like.create!(liker: user1, likeable_id: comment1.id, likeable_type: 'Comment')
   # Like.create!(liker: user2, likeable_id: artwork2.id, likeable_type: 'Artwork')
   # Like.create!(liker: user1, likeable_id: artwork2.id, likeable_type: 'Artwork')

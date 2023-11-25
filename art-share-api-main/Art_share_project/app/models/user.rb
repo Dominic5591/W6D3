@@ -29,6 +29,6 @@ class User < ApplicationRecord
   has_many :comments,
     foreign_key: :author_id,
     class_name: :Comment,
-    dependent: :destory,
+    dependent: :destroy,
     inverse_of: :author
 end
